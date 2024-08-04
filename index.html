@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta" name="viewport" content ="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content : center;
+            height: 100vh;
+        }
+        table{
+            padding: 2px;
+            border: 2px solid black;
+            height: 200px;
+            width: 200px;
+            background-color: rgb(87, 12, 12);
+            
+        }
+        input[type="button"]{ 
+            width: 100%;
+            height: 100%;
+            background-color: orange;
+            color: white;
+            font-size: 1.5rem;
+        }
+        input[type="text"]{
+            height: 100%;
+            margin: 2px 2px;
+           text-align: right;
+        }
+        button{
+            width: 100%;
+            height: 100%;
+            background-color: orange;
+            color: white;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <table class="tabl">
+           <tr >
+              <td colspan="3"><input type="text" id="text"></td>
+              <td><button id="CE">CE</button></td>
+           </tr>
+           <tr>
+            <td><input type="button" class="cls" name="1" value="1"></td>
+            <td><input type="button" class="cls" name="2" value="2"></td>
+            <td><input type="button" class="cls" name="3" value="3"></td>
+            <td><input type="button" class="cls" name="+" value="+"></td>
+            </tr>
+            <tr>
+                <td><input type="button" class="cls" name="4" value="4"></td>
+                <td><input type="button" class="cls" name="5" value="5"></td>
+                <td><input type="button" class="cls" name="6" value="6"></td>
+                <td><input type="button" class="cls" name="-" value="-"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" class="cls" name="7" value="7"></td>
+                    <td><input type="button" class="cls" name="8" value="8"></td>
+                    <td><input type="button" class="cls" name="9" value="9"></td>
+                    <td><input type="button" class="cls" name="*" value="*"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" class="cls" name="0" value="0"></td>
+                        <td><input type="button" class="cls" name="." value="."></td>
+                        <td ><button id="equals" >=</button></td>
+                        <td><input type="button" class="cls" name="/" value="/"></td>
+                        </tr>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
+    <script>
+        
+        
+            var dis = ""
+            $("input").click(function(){ 
+            var num = $(this).attr("name")
+            dis = dis + num
+           
+             document.getElementById("text").value = dis
+            })
+            $("button").click(function() {
+            var buttonId = $(this).attr("id");
+            if (buttonId === "CE") {
+                document.getElementById("text").value = "";
+               dis=""
+            } else if (buttonId === "equals") {
+                var y = math.evaluate(dis)
+                document.getElementById("text").value =y ;
+                }
+            })
+</script>
+</body>
+</html>
